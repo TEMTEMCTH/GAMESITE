@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rat Rush — Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🐀</span>
+            <span class="logo-text">RAT RUSH</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Home</a>
+            <a href="profile.html" class="active">🐀 Profile</a>
+        </div>
+        <div class="user-info">
+            <span>💰 <span id="balance">1247</span> 🧀</span>
+            <button id="dailyBonusBtn" class="daily-btn">🎁 Daily</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="profile-header">
+            <div class="avatar">🐀</div>
+            <h2>SewerRat_42</h2>
+            <p>Member since: Dec 2024</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>🏆 Cases opened</h3>
+                <p id="totalOpened">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>⭐ Legendary rats</h3>
+                <p id="legendaryCount">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>💎 Highest value drop</h3>
+                <p id="highestDrop">0</p>
+            </div>
+        </div>
+
+        <div class="inventory">
+            <h3>🐀 Your rat collection</h3>
+            <div id="inventoryList" class="inventory-grid">
+                <!-- loaded from localStorage -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/common.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

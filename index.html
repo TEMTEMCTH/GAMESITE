@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rat Rush — Open cases like a rat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🐀</span>
+            <span class="logo-text">RAT RUSH</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">🏠 Home</a>
+            <a href="profile.html">🐀 Profile</a>
+        </div>
+        <div class="user-info">
+            <span>💰 <span id="balance">1247</span> 🧀</span>
+            <button id="dailyBonusBtn" class="daily-btn">🎁 Daily</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>🐀 RAT RUSH 🧀</h1>
+            <p>Open cases, collect rare rats, dominate the sewer</p>
+            <div class="hero-stats">
+                <span>📦 <span id="totalOpenedHero">0</span> opened</span>
+                <span>⭐ <span id="legendaryHero">0</span> legendaries</span>
+            </div>
+        </section>
+
+        <!-- Cases section - прямо на главной -->
+        <section class="cases-section">
+            <h2>📦 Available Cases</h2>
+            <p class="section-sub">Choose your case and test your luck 🍀</p>
+            
+            <div class="cases-container" id="casesContainer">
+                <!-- filled by JS -->
+            </div>
+        </section>
+
+        <!-- Recent drops -->
+        <section class="recent-drops">
+            <h2>🔥 Recent legendary drops</h2>
+            <div id="recentDropsList" class="drops-list">
+                <!-- filled by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Opening animation modal -->
+    <div id="openModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="openResult" class="result-area">
+                <div class="roulette-wheel" id="rouletteWheel">🎲</div>
+                <div id="resultText" class="result-text">Click to open...</div>
+                <button id="modalCloseBtn" class="modal-close-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

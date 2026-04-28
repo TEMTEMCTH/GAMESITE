@@ -1,0 +1,116 @@
+:root {
+    --bg-dark: #0f0c0a;
+    --bg-card: #1c1714;
+    --border-color: #8b5a2b;
+    --accent: #d97706;
+    --accent-glow: #f59e0b;
+    --text-primary: #e6ccb2;
+    --text-secondary: #b68b40;
+    --rat-red: #9e2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Courier New', monospace;
+    background: var(--bg-dark);
+    background-image: repeating-linear-gradient(45deg, rgba(80, 50, 20, 0.05) 0px, rgba(80, 50, 20, 0.05) 2px, transparent 2px, transparent 8px);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(15, 12, 10, 0.95);
+    border-bottom: 2px solid var(--border-color);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.logo-text {
+    background: linear-gradient(135deg, #f5a623, #d97706);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--accent-glow);
+    text-shadow: 0 0 3px #c2410c;
+}
+
+.user-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: #2a231e;
+    padding: 6px 14px;
+    border-radius: 40px;
+}
+
+.daily-btn {
+    background: #3b2a1f;
+    border: 1px solid var(--accent);
+    color: #ffd966;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+
+.daily-btn:active {
+    transform: scale(0.96);
+}
+
+main {
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+button {
+    background: linear-gradient(180deg, #4a3727, #2c1d12);
+    border: none;
+    color: #f3c98b;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+button:hover {
+    background: linear-gradient(180deg, #7a4f2e, #4a2e1a);
+    box-shadow: 0 0 6px #f5a623;
+}
