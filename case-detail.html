@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rat Rush — Case Details</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/case-detail.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" id="logoLink" style="cursor: pointer;">
+            <span class="logo-icon">🐀</span>
+            <span class="logo-text">RAT RUSH</span>
+        </div>
+        <div class="user-info">
+            <span>💰 <span id="balance">5000</span> ₽</span>
+            <div class="avatar-nav" id="avatarNav">
+                <span class="avatar-icon">🐀</span>
+            </div>
+            <button id="dailyBonusBtn" class="daily-btn">🎁 Daily</button>
+        </div>
+    </nav>
+
+    <main>
+        <button class="back-btn" onclick="history.back()">← Back to cases</button>
+        
+        <!-- Кейс и управление -->
+        <div class="case-opening-block" id="caseBlock">
+            <div class="case-icon-large" id="caseIcon">📦</div>
+            <h1 id="caseName">Case Name</h1>
+            <div class="case-price-large" id="casePrice">💰 0 ₽</div>
+            
+            <!-- Блок анимации -->
+            <div class="horizontal-animation-container" id="horizontalAnimation" style="display: none;">
+                <div class="slot-machine-wrapper">
+                    <div class="slot-window-horizontal">
+                        <div class="slot-track" id="slotTrack"></div>
+                        <div class="slot-result" id="slotResult" style="display: none;"></div>
+                    </div>
+                    <div class="slot-rarity" id="slotRarity">БРОНЗОВЫЙ</div>
+                </div>
+            </div>
+            
+            <!-- Кнопки управления -->
+            <div class="open-controls-centered">
+                <button id="openMainBtn" class="open-main-btn bronze-btn">🎲 ОТКРЫТЬ КЕЙС</button>
+                <div class="quantity-buttons-centered">
+                    <span class="quantity-label">Количество:</span>
+                    <div class="quantity-buttons">
+                        <button class="qty-btn" data-amount="1">1</button>
+                        <button class="qty-btn" data-amount="2">2</button>
+                        <button class="qty-btn" data-amount="3">3</button>
+                        <button class="qty-btn" data-amount="4">4</button>
+                        <button class="qty-btn" data-amount="5">5</button>
+                        <button class="qty-btn" data-amount="6">6</button>
+                        <button class="qty-btn" data-amount="7">7</button>
+                        <button class="qty-btn" data-amount="8">8</button>
+                        <button class="qty-btn" data-amount="9">9</button>
+                        <button class="qty-btn" data-amount="10">10</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="total-price-block">
+                <span class="total-label">💰 Общая стоимость:</span>
+                <span class="total-amount" id="totalAmount">0</span>
+                <span class="total-currency">₽</span>
+            </div>
+        </div>
+
+        <!-- Содержимое кейса -->
+        <div class="items-section">
+            <h2>📋 Содержимое кейса</h2>
+            <div class="items-grid" id="itemsGrid"></div>
+        </div>
+    </main>
+
+    <div id="resultModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div id="bulkResultsDisplay">
+                <h4>📋 Результаты массового открытия:</h4>
+                <div id="bulkResultsList"></div>
+                <button id="bulkCloseBtn" class="modal-close-btn">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/case-detail.js"></script>
+</body>
+</html>

@@ -9,16 +9,15 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
+        <div class="logo" id="logoLink" style="cursor: pointer;">
             <span class="logo-icon">🐀</span>
             <span class="logo-text">RAT RUSH</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html">🏠 Home</a>
-            <a href="profile.html" class="active">🐀 Profile</a>
-        </div>
         <div class="user-info">
-            <span>💰 <span id="balance">1247</span> 🧀</span>
+            <span>💰 <span id="balance">5000</span> 🧀</span>
+            <div class="avatar-nav" id="avatarNav">
+                <span class="avatar-icon">🐀</span>
+            </div>
             <button id="dailyBonusBtn" class="daily-btn">🎁 Daily</button>
         </div>
     </nav>
@@ -45,11 +44,30 @@
             </div>
         </div>
 
-        <div class="inventory">
-            <h3>🐀 Your rat collection</h3>
-            <div id="inventoryList" class="inventory-grid">
-                <!-- loaded from localStorage -->
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="inventory">📦 Inventory</button>
+            <button class="tab-btn" data-tab="history">📜 Drop History</button>
+        </div>
+
+        <div id="inventoryTab" class="tab-content active">
+            <div class="inventory">
+                <div class="inventory-header">
+                    <h3>🐀 Your rat collection</h3>
+                    <button id="sellAllBtn" class="sell-all-btn">💰 SELL ALL</button>
+                </div>
+                <div id="inventoryList" class="inventory-grid"></div>
             </div>
+        </div>
+
+        <div id="historyTab" class="tab-content" style="display: none;">
+            <div class="history-section">
+                <h3>📜 Drop History</h3>
+                <div id="historyList" class="history-list"></div>
+            </div>
+        </div>
+        
+        <div class="danger-zone">
+            <button id="clearDataBtn" class="clear-data-btn">⚠️ RESET ALL DATA</button>
         </div>
     </main>
 

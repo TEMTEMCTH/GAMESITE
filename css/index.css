@@ -1,182 +1,551 @@
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    background: radial-gradient(circle at 20% 30%, #2c211a, #0f0c0a);
-    border-radius: 60px;
-    margin-bottom: 3rem;
-    border: 1px solid #8b5a2b;
+/* ЛЕНТА ОТКРЫТИЙ ДРУГИХ ИГРОКОВ — САМЫЙ ВЕРХ */
+.live-drops-bar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 0.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 100;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    letter-spacing: 4px;
-    text-shadow: 0 0 8px #ff7b2c;
-}
-
-.hero-stats {
+.live-drops-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #ff4466, #cc2244);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0 1rem;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    letter-spacing: 2px;
+}
+
+.live-drops-track {
+    display: inline-flex;
     gap: 2rem;
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    color: var(--accent);
+    animation: scrollDrops 30s linear infinite;
+    padding-left: 100px;
 }
 
-/* Cases section */
-.cases-section {
-    margin-bottom: 3rem;
+.live-drop-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1a1a1a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #333;
 }
 
-.cases-section h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
+.live-drop-item:hover {
+    transform: translateY(-2px);
+    border-color: #ffd700;
+    background: #222;
 }
 
-.section-sub {
-    text-align: center;
-    color: var(--text-secondary);
+.live-drop-avatar {
+    font-size: 0.9rem;
+}
+
+.live-drop-name {
+    font-weight: bold;
+    color: #fff;
+}
+
+.live-drop-skin {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.live-drop-price {
+    color: #00ff88;
+}
+
+@keyframes scrollDrops {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Тултип при наведении */
+.live-drop-item {
+    position: relative;
+}
+
+.live-drop-tooltip {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    border: 1px solid #ffd700;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    font-size: 0.65rem;
+    color: #ccc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.live-drop-item:hover .live-drop-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 145%;
+}
+
+.live-drop-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffd700 transparent transparent transparent;
+}
+
+.tooltip-source {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.tooltip-time {
+    color: #888;
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+/* Пауза анимации при наведении на ленту */
+.live-drops-bar:hover .live-drops-track {
+    animation-play-state: paused;
+}
+
+/* ========== НАВИГАЦИЯ ========== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* ========== КАТЕГОРИИ КЕЙСОВ ========== */
+.cases-category {
     margin-bottom: 2rem;
 }
 
-.cases-container {
+/* ЗАГОЛОВКИ ПО ЦЕНТРУ */
+.section-header {
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #333;
     flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
 }
 
-.case-card {
-    background: linear-gradient(145deg, #1f1915, #130f0c);
-    width: 280px;
-    border-radius: 28px;
-    padding: 1.5rem;
+.section-header h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffd700;
+    letter-spacing: 1px;
     text-align: center;
-    border: 1px solid #7c4f28;
-    transition: 0.2s;
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+
+.category-count {
+    font-size: 0.7rem;
+    color: #888;
+    background: #1a1a1a;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+/* Сетка кейсов */
+.cases-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+/* Карточка кейса */
+.case-card {
+    background: #111;
+    border-radius: 16px;
+    padding: 1rem 0.8rem;
+    text-align: center;
     cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #2a2a2a;
 }
 
 .case-card:hover {
-    transform: translateY(-5px);
-    border-color: #dc7a1a;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transform: translateY(-3px);
+    border-color: #ffd700;
 }
 
 .case-icon {
-    font-size: 4rem;
-    filter: drop-shadow(0 0 6px rgba(245, 166, 35, 0.5));
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
-.case-card h3 {
-    font-size: 1.3rem;
-    margin: 0.5rem 0;
+.case-name {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.case-items-count {
+    font-size: 0.65rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.case-items-count span {
+    color: #ffd700;
 }
 
 .case-price {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #ffb347;
-    margin: 10px 0;
-}
-
-.case-items-preview {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.open-case-btn {
-    width: 100%;
-    background: #834e2c;
-    margin-top: 8px;
-    padding: 10px;
     font-size: 1rem;
+    font-weight: bold;
+    color: #ffd700;
 }
 
-/* Recent drops */
-.recent-drops {
-    background: #14100e;
-    border-radius: 36px;
+.case-badge {
+    display: inline-block;
+    background: #ff4466;
+    color: white;
+    font-size: 0.55rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Адаптив */
+@media (max-width: 1100px) {
+    .cases-container { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 800px) {
+    .cases-container { grid-template-columns: repeat(3, 1fr); }
+    .hero-banner { flex-direction: column; }
+}
+@media (max-width: 550px) {
+    .cases-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Баннер */
+.hero-banner {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    border-radius: 24px;
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #2a2a2a;
 }
 
-.recent-drops h2 {
-    margin-bottom: 1rem;
+.hero-left h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.upgrade-tag {
+    background: #ff4466;
+    color: white;
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin: 0.5rem 0;
+}
+
+.weapon-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 400px;
+}
+
+.weapon-item {
+    background: #1a1a1a;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    color: #ccc;
+    border: 1px solid #333;
+}
+
+.weapon-item.star {
+    color: #ffd700;
+    border-color: #ffd700;
+}
+
+.balance-card {
+    background: #0a0a0a;
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    min-width: 220px;
+}
+
+.balance-amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.balance-percent {
+    color: #00ff88;
+    font-size: 0.8rem;
+}
+
+.timer-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 0.5rem 0;
+}
+
+.promocode-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #1a1a1a;
+    padding: 0.5rem;
+    border-radius: 30px;
+}
+
+.promocode-value {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #333;
+}
+
+.filter-what, .filter-favorites {
+    color: #ffd700;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.recent-drops {
+    background: #111;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-top: 1rem;
 }
 
 .drops-list {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     overflow-x: auto;
-    padding-bottom: 0.5rem;
 }
 
 .drop-item {
-    background: #1e1713;
-    border-left: 6px solid var(--accent);
-    padding: 0.7rem 1rem;
-    border-radius: 16px;
+    background: #1a1a1a;
+    border-left: 3px solid #ffd700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
     white-space: nowrap;
+    color: #aaa;
+}
+/* Лента открытий — новая версия */
+.live-drops-bar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 100;
+    scrollbar-width: thin;
+}
+
+.live-drops-bar::-webkit-scrollbar {
+    height: 3px;
+}
+
+.live-drops-bar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.live-drops-bar::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+.live-drops-label {
+    position: sticky;
+    left: 0;
+    background: linear-gradient(90deg, #ff4466, #cc2244);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    z-index: 10;
+    letter-spacing: 2px;
+    height: 100%;
+    margin-right: 1rem;
+}
+
+.live-drops-track {
+    display: inline-flex;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+
+.live-drop-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1a1a1a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #333;
+    white-space: nowrap;
+}
+
+.live-drop-item:hover {
+    transform: translateY(-2px);
+    border-color: #ffd700;
+    background: #222;
+}
+
+/* Тултип */
+.live-drop-item {
+    position: relative;
+}
+
+.live-drop-tooltip {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    border: 1px solid #ffd700;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    font-size: 0.65rem;
+    color: #ccc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.live-drop-item:hover .live-drop-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 145%;
+}
+
+.live-drop-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffd700 transparent transparent transparent;
+}
+/* Лента открытий — стиль как на скриншоте */
+.live-drops-bar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 100;
+    scrollbar-width: thin;
+}
+
+.live-drops-track {
+    display: inline-flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.live-drop-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #111;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    border: 1px solid #2a2a2a;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.live-drop-item:hover {
+    border-color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.live-drop-avatar {
     font-size: 0.9rem;
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+.live-drop-name {
+    color: #fff;
+    font-weight: 500;
 }
 
-.modal-content {
-    background: linear-gradient(145deg, #221c17, #17120e);
-    border-radius: 60px;
-    padding: 2rem;
-    text-align: center;
-    min-width: 320px;
-    border: 2px solid #f0a34b;
-    animation: modalPop 0.3s ease-out;
+.live-drop-skin {
+    color: #ffd700;
 }
 
-@keyframes modalPop {
-    0% { transform: scale(0.7); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.roulette-wheel {
-    font-size: 5rem;
-    margin: 1rem 0;
-}
-
-.result-text {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    background: #1a130f;
-    border-radius: 30px;
-}
-
-.modal-close-btn {
-    background: #4a2e1f;
-    padding: 8px 24px;
-    margin-top: 1rem;
-}
-
-.close {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #b68b40;
-}
-
-.close:hover {
-    color: #f5a623;
+.live-drop-price {
+    color: #00ff88;
+    font-weight: bold;
 }

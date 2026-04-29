@@ -1,0 +1,269 @@
+/* Базовые стили */
+.case-opening-block {
+    background: linear-gradient(135deg, #111, #0a0a0a);
+    border-radius: 48px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 2px solid #ffd700;
+    text-align: center;
+}
+
+.horizontal-animation-container {
+    margin: 1.5rem 0;
+}
+
+.slot-machine-wrapper {
+    background: #0a0a0a;
+    border-radius: 30px;
+    padding: 20px;
+    border: 2px solid #333;
+}
+
+/* Окно прокрутки — увеличил высоту */
+.slot-window-horizontal {
+    background: #0a0a0a;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    border: 1px solid #333;
+}
+
+/* Трек с предметами */
+.slot-track {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    will-change: transform;
+    height: 100%;
+    align-items: center;
+}
+
+/* Карточка предмета при прокрутке */
+.slot-item-horizontal {
+    flex-shrink: 0;
+    width: 160px;
+    background: linear-gradient(145deg, #1a1a1a, #121212);
+    border-radius: 16px;
+    padding: 12px;
+    text-align: center;
+    border-left: 4px solid;
+}
+
+.slot-item-icon {
+    font-size: 2.5rem;
+}
+
+.slot-item-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slot-item-rarity {
+    font-size: 0.65rem;
+}
+
+.slot-item-value {
+    font-size: 0.7rem;
+    color: #ffd700;
+}
+
+/* Результат — теперь всё помещается */
+.slot-result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border-radius: 20px;
+    animation: fadeInScale 0.4s ease-out;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Редкость */
+.slot-rarity {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.slot-rarity.bronze { color: #cd7f32; text-shadow: 0 0 5px #cd7f32; }
+.slot-rarity.silver { color: #c0c0c0; text-shadow: 0 0 5px #c0c0c0; }
+.slot-rarity.gold { color: #ffd700; text-shadow: 0 0 5px #ffd700; }
+.slot-rarity.diamond { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
+
+/* Элементы внутри результата */
+.result-item-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.result-item-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-item-rarity {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-item-value {
+    font-size: 1rem;
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.result-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.result-btn {
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #1a1a1a;
+    border: 1px solid;
+    transition: all 0.2s;
+}
+
+.result-btn:hover {
+    transform: translateY(-2px);
+}
+
+.again-btn { border-color: #ffd700; color: #ffd700; }
+.sell-btn { border-color: #00ff88; color: #00ff88; }
+.upgrade-btn { border-color: #ffd700; color: #ffd700; }
+
+/* Общая стоимость */
+.total-price-block {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.total-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Кнопки управления */
+.open-controls-centered {
+    margin: 1.5rem 0;
+}
+
+.bronze-btn {
+    background: linear-gradient(135deg, #cd7f32, #a0622a);
+    border: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.quantity-buttons-centered {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.qty-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #aaa;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.case-icon-large {
+    font-size: 5rem;
+}
+
+.items-section {
+    background: #111;
+    border-radius: 32px;
+    padding: 1.5rem;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.item-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.back-btn {
+    background: transparent;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #111;
+    border-radius: 30px;
+    padding: 2rem;
+    min-width: 300px;
+    border: 2px solid #ffd700;
+}
+
+@media (max-width: 700px) {
+    .slot-window-horizontal { height: 350px; }
+    .slot-item-horizontal { width: 130px; }
+    .result-item-icon { font-size: 3rem; }
+}

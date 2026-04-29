@@ -3,68 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rat Rush — Open cases like a rat</title>
+    <title>Rat Rush — CS2 Case Battle</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
+    <!-- ЛЕНТА ОТКРЫТИЙ ДРУГИХ ИГРОКОВ (САМЫЙ ВЕРХ) -->
+    <div class="live-drops-bar">
+        <div class="live-drops-label">🔴 LIVE</div>
+        <div class="live-drops-track" id="liveDropsTrack">
+            <!-- динамически добавляемые дропы -->
+        </div>
+    </div>
+
     <nav class="navbar">
-        <div class="logo">
+        <div class="logo" id="logoLink" style="cursor: pointer;">
             <span class="logo-icon">🐀</span>
             <span class="logo-text">RAT RUSH</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html" class="active">🏠 Home</a>
-            <a href="profile.html">🐀 Profile</a>
-        </div>
         <div class="user-info">
-            <span>💰 <span id="balance">1247</span> 🧀</span>
+            <span>💰 <span id="balance">2037</span> ₽</span>
+            <div class="avatar-nav" id="avatarNav">
+                <span class="avatar-icon">🐀</span>
+            </div>
             <button id="dailyBonusBtn" class="daily-btn">🎁 Daily</button>
         </div>
     </nav>
 
     <main>
-        <!-- Hero section -->
-        <section class="hero">
-            <h1>🐀 RAT RUSH 🧀</h1>
-            <p>Open cases, collect rare rats, dominate the sewer</p>
-            <div class="hero-stats">
-                <span>📦 <span id="totalOpenedHero">0</span> opened</span>
-                <span>⭐ <span id="legendaryHero">0</span> legendaries</span>
+        <!-- Баннер -->
+        <div class="hero-banner">
+            <div class="hero-left">
+                <h1>CASE-BATTLE</h1>
+                <p>У нас выигрывают</p>
+                <div class="upgrade-tag">АПРЕЙД</div>
+                <div class="weapon-list">
+                    <span class="weapon-item">M4A1-S</span>
+                    <span class="weapon-item">Сувенирный P90</span>
+                    <span class="weapon-item">AWP</span>
+                    <span class="weapon-item">Сувенирный P250</span>
+                    <span class="weapon-item">M4A1-S</span>
+                    <span class="weapon-item">Сувенирный MAC-10</span>
+                    <span class="weapon-item">Револьвер R8</span>
+                    <span class="weapon-item star">★ Классический нож</span>
+                </div>
             </div>
-        </section>
-
-        <!-- Cases section - прямо на главной -->
-        <section class="cases-section">
-            <h2>📦 Available Cases</h2>
-            <p class="section-sub">Choose your case and test your luck 🍀</p>
-            
-            <div class="cases-container" id="casesContainer">
-                <!-- filled by JS -->
-            </div>
-        </section>
-
-        <!-- Recent drops -->
-        <section class="recent-drops">
-            <h2>🔥 Recent legendary drops</h2>
-            <div id="recentDropsList" class="drops-list">
-                <!-- filled by JS -->
-            </div>
-        </section>
-    </main>
-
-    <!-- Opening animation modal -->
-    <div id="openModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="openResult" class="result-area">
-                <div class="roulette-wheel" id="rouletteWheel">🎲</div>
-                <div id="resultText" class="result-text">Click to open...</div>
-                <button id="modalCloseBtn" class="modal-close-btn">Continue</button>
+            <div class="hero-right">
+                <div class="balance-card">
+                    <div class="balance-amount">2037</div>
+                    <div class="balance-percent">+23% <span>НА СЧЕТ</span></div>
+                    <div class="timer-block">
+                        <div class="timer-label">ОСТАЛОСЬ ВРЕМЕНИ:</div>
+                        <div class="timer-value" id="timer">00:39:55</div>
+                    </div>
+                    <div class="promocode-block">
+                        <div class="promocode-label">ИСПОЛЬЗУЙ ПРОМОКОД:</div>
+                        <div class="promocode-value" id="promocode">PURE-23</div>
+                        <button class="copy-btn" id="copyPromo">📋</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <!-- Фильтр -->
+        <div class="filter-bar">
+            <span class="filter-label">Быстрый Фильтр:</span>
+            <span class="filter-what">Что ищем?</span>
+            <span class="filter-favorites">Только избранные (<span id="favoritesCount">8</span>)</span>
+        </div>
+
+        <!-- КАТЕГОРИИ КЕЙСОВ -->
+        <div class="cases-category" id="categorySerial">
+            <div class="section-header">
+                <h2>📦 СЕРИЙНЫЕ КЕЙСЫ</h2>
+                <span class="category-count" id="serialCount">0</span>
+            </div>
+            <div class="cases-container" id="serialCases"></div>
+        </div>
+
+        <div class="cases-category" id="categoryPremium">
+            <div class="section-header">
+                <h2>✨ ПРЕМИУМ КЕЙСЫ</h2>
+                <span class="category-count" id="premiumCount">0</span>
+            </div>
+            <div class="cases-container" id="premiumCases"></div>
+        </div>
+
+        <div class="cases-category" id="categoryExclusive">
+            <div class="section-header">
+                <h2>💎 ЭКСКЛЮЗИВНЫЕ КЕЙСЫ</h2>
+                <span class="category-count" id="exclusiveCount">0</span>
+            </div>
+            <div class="cases-container" id="exclusiveCases"></div>
+        </div>
+
+        <div class="cases-category" id="categoryLimited">
+            <div class="section-header">
+                <h2>⏰ ЛИМИТИРОВАННЫЕ КЕЙСЫ</h2>
+                <span class="category-count" id="limitedCount">0</span>
+            </div>
+            <div class="cases-container" id="limitedCases"></div>
+        </div>
+
+        <!-- Недавние дропы -->
+        <div class="recent-drops">
+            <h2>🔥 Recent unboxings</h2>
+            <div id="recentDropsList" class="drops-list"></div>
+        </div>
+    </main>
 
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>

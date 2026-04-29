@@ -1,227 +1,225 @@
-// Cases data
-const casesData = [
-    { 
-        id: 0, 
-        name: "🧀 Cheese Case", 
-        price: 100, 
-        icon: "🐭🧀",
-        description: "Common rats, occasional delicacy",
-        items: [
-            { name: "🧀 Cheese Rat", rarity: "common", value: 8, icon: "🐭" },
-            { name: "🍕 Pizza Rat", rarity: "common", value: 12, icon: "🐀" },
-            { name: "✨ Gouda Glow Rat", rarity: "rare", value: 45, icon: "✨🐭" },
-            { name: "👨‍🍳 Ratatouille Chef", rarity: "legendary", value: 480, icon: "👨‍🍳🐀" }
-        ]
-    },
-    { 
-        id: 1, 
-        name: "🧪 Toxic Sewer Case", 
-        price: 350, 
-        icon: "🧪☣️",
-        description: "Mutants and radioactive creatures",
-        items: [
-            { name: "💚 Slime Rat", rarity: "common", value: 15, icon: "💚🐭" },
-            { name: "👁️ Three-Eye Mutant", rarity: "rare", value: 85, icon: "👁️👁️👁️" },
-            { name: "☢️ Glowing Rat", rarity: "rare", value: 110, icon: "☢️🐀" },
-            { name: "🦠 Plague Doctor Rat", rarity: "legendary", value: 1250, icon: "🦠🐀" }
-        ]
-    },
-    { 
-        id: 2, 
-        name: "👑 Rat King Vault", 
-        price: 1000, 
-        icon: "👑🐀",
-        description: "Royalty and ancient rulers",
-        items: [
-            { name: "📜 Royal Page Rat", rarity: "rare", value: 120, icon: "📜🐭" },
-            { name: "👑 Crown Rat", rarity: "legendary", value: 800, icon: "👑🐀" },
-            { name: "✨ Golden Rat", rarity: "legendary", value: 1200, icon: "✨🐀" },
-            { name: "🔮 Elder Rat Deity", rarity: "mythic", value: 4500, icon: "🔮🐀✨" }
-        ]
-    },
-    { 
-        id: 3, 
-        name: "⚡ Electric Sewer", 
-        price: 750, 
-        icon: "⚡🔋",
-        description: "Shocking surprises inside",
-        items: [
-            { name: "🔋 Battery Rat", rarity: "common", value: 20, icon: "🔋🐭" },
-            { name: "⚡ Spark Rat", rarity: "rare", value: 95, icon: "⚡🐀" },
-            { name: "🌩️ Thunder Rat", rarity: "legendary", value: 950, icon: "🌩️🐀" },
-            { name: "💀 Tesla Coil Rat", rarity: "mythic", value: 2800, icon: "💀⚡🐀" }
-        ]
-    }
+// ===== КЕЙСЫ С КАТЕГОРИЯМИ =====
+const casesData = {
+    serial: [
+        { id: 0, name: "ХЬЮИ КЭМПБЕЛЛ", icon: "🧢", price: 55, itemsCount: 41, isNew: true },
+        { id: 1, name: "ФРАНЦУЗИК", icon: "🥖", price: 111, itemsCount: 40, isNew: true },
+        { id: 2, name: "СОЛДАТИК", icon: "🎖️", price: 444, itemsCount: 42, isNew: true },
+        { id: 3, name: "ХОУМЛЕНДЕР", icon: "🇺🇸", price: 999, itemsCount: 41, isNew: true },
+        { id: 4, name: "ПАЦАНЫ", icon: "👊", price: 4444, itemsCount: 44, isNew: true },
+        { id: 5, name: "НИНДЗЯ", icon: "🥷", price: 69, itemsCount: 40, isNew: false },
+        { id: 6, name: "САМУРАЙ", icon: "⚔️", price: 169, itemsCount: 40, isNew: false },
+        { id: 7, name: "РОНИН", icon: "🏮", price: 299, itemsCount: 40, isNew: false },
+        { id: 8, name: "СЁГУН", icon: "👑", price: 699, itemsCount: 41, isNew: false },
+        { id: 9, name: "ИМПЕРАТОР", icon: "🏯", price: 1999, itemsCount: 39, isNew: false },
+        { id: 10, name: "МАФИЯ", icon: "🕴️", price: 150, itemsCount: 45, isNew: true },
+        { id: 11, name: "БАНДИТ", icon: "🔫", price: 250, itemsCount: 38, isNew: false },
+        { id: 12, name: "ДЕТЕКТИВ", icon: "🔍", price: 350, itemsCount: 42, isNew: true },
+        { id: 13, name: "ПРЕСТУПНИК", icon: "😈", price: 550, itemsCount: 40, isNew: false },
+        { id: 14, name: "ГЕРОЙ", icon: "🦸", price: 750, itemsCount: 43, isNew: false },
+    ],
+    premium: [
+        { id: 15, name: "ЗОЛОТОЙ", icon: "🌟", price: 1250, itemsCount: 50, isNew: true },
+        { id: 16, name: "ПЛАТИНОВЫЙ", icon: "💎", price: 2500, itemsCount: 55, isNew: true },
+        { id: 17, name: "АЛМАЗНЫЙ", icon: "✨", price: 5000, itemsCount: 60, isNew: false },
+        { id: 18, name: "РУБИНОВЫЙ", icon: "🔴", price: 3500, itemsCount: 52, isNew: false },
+        { id: 19, name: "САПФИРОВЫЙ", icon: "🔵", price: 4000, itemsCount: 53, isNew: true },
+        { id: 20, name: "ИЗУМРУДНЫЙ", icon: "🟢", price: 3800, itemsCount: 51, isNew: false },
+        { id: 21, name: "ОНИКСОВЫЙ", icon: "⚫", price: 3000, itemsCount: 48, isNew: false },
+        { id: 22, name: "ЖЕМЧУЖНЫЙ", icon: "⚪", price: 2800, itemsCount: 47, isNew: true },
+    ],
+    exclusive: [
+        { id: 23, name: "ДРАКОНИЙ", icon: "🐉", price: 7500, itemsCount: 65, isNew: true },
+        { id: 24, name: "ФЕНИКС", icon: "🔥", price: 6800, itemsCount: 62, isNew: true },
+        { id: 25, name: "ТИТАНОВЫЙ", icon: "⚙️", price: 5500, itemsCount: 58, isNew: false },
+        { id: 26, name: "НЕБЕСНЫЙ", icon: "☁️", price: 6200, itemsCount: 60, isNew: false },
+        { id: 27, name: "КОСМИЧЕСКИЙ", icon: "🌌", price: 8900, itemsCount: 70, isNew: true },
+        { id: 28, name: "ЛЕГЕНДАРНЫЙ", icon: "🏆", price: 9999, itemsCount: 75, isNew: false },
+    ],
+    limited: [
+        { id: 29, name: "ХЭЛЛОУИН", icon: "🎃", price: 450, itemsCount: 35, isNew: false },
+        { id: 30, name: "НОВОГОДНИЙ", icon: "🎄", price: 550, itemsCount: 38, isNew: false },
+        { id: 31, name: "ДЕНЬ РОЖДЕНИЯ", icon: "🎂", price: 650, itemsCount: 40, isNew: true },
+        { id: 32, name: "ЛЕТНИЙ", icon: "☀️", price: 400, itemsCount: 36, isNew: false },
+        { id: 33, name: "ВЕСЕННИЙ", icon: "🌸", price: 420, itemsCount: 37, isNew: true },
+        { id: 34, name: "ОСЕННИЙ", icon: "🍂", price: 430, itemsCount: 37, isNew: false },
+        { id: 35, name: "ЗИМНИЙ", icon: "❄️", price: 480, itemsCount: 38, isNew: false },
+    ]
+};
+
+// ===== СПИСОК СКИНОВ ДЛЯ ЛЕНТЫ (как на скриншоте) =====
+const liveSkins = [
+    { name: "M4A4", skin: "Песчаная буря", icon: "🔫", stattrak: false },
+    { name: "USP-S", skin: "Кровавый тигр", icon: "🔫", stattrak: true },
+    { name: "Galil AR", skin: "Янтарный градиент", icon: "🔫", stattrak: false },
+    { name: "Sawed-Off", skin: "KissLove", icon: "🔫", stattrak: true },
+    { name: "Glock-18", skin: "Рука Рамсеса", icon: "🔫", stattrak: false },
+    { name: "P90", skin: "Спешный скарабей", icon: "🔫", stattrak: false },
+    { name: "USP-S", skin: "Страх", icon: "🔫", stattrak: true },
+    { name: "M4A4", skin: "Зубная фея", icon: "🔫", stattrak: false },
+    { name: "AK-47", skin: "Redline", icon: "🔫", stattrak: false },
+    { name: "AWP", skin: "Dragon Lore", icon: "🔫", stattrak: true },
+    { name: "M4A1-S", skin: "Printstream", icon: "🔫", stattrak: false },
+    { name: "Desert Eagle", skin: "Printstream", icon: "🔫", stattrak: true }
 ];
 
-// Recent drops history (max 10)
-let recentDrops = [];
+// ===== ИГРОКИ =====
+const players = [
+    { name: "Onlain", avatar: "🎮" },
+    { name: "Queen Jaguar", avatar: "🐆" },
+    { name: "Black Lotus", avatar: "🌸" },
+    { name: "High Roller", avatar: "🎲" },
+    { name: "Blue Tire", avatar: "🛞" },
+    { name: "Emperor", avatar: "👑" },
+    { name: "Sun in Leo", avatar: "☀️" },
+    { name: "Sandstorm", avatar: "🏜️" },
+    { name: "Elite Build", avatar: "🏗️" },
+    { name: "Catowice 2019", avatar: "🐱" },
+    { name: "StatTrak Pro", avatar: "⭐" }
+];
 
-function addRecentDrop(item, caseName) {
-    const dropText = `${item.icon} ${item.name} (${item.rarity}) worth ${item.value} 🧀 from ${caseName}`;
-    recentDrops.unshift(dropText);
-    if (recentDrops.length > 8) recentDrops.pop();
-    localStorage.setItem('recentDrops', JSON.stringify(recentDrops));
-    renderRecentDrops();
+// ===== ГЕНЕРАЦИЯ ДРОПА =====
+function generateDrop() {
+    const player = players[Math.floor(Math.random() * players.length)];
+    const skin = liveSkins[Math.floor(Math.random() * liveSkins.length)];
+    const price = Math.floor(Math.random() * 2000) + 50;
+    return { player, skin, price };
 }
 
-function renderRecentDrops() {
-    const container = document.getElementById('recentDropsList');
+// ===== РЕНДЕР КАТЕГОРИЙ =====
+function renderCategory(containerId, cases, countId) {
+    const container = document.getElementById(containerId);
     if (!container) return;
     
-    const saved = localStorage.getItem('recentDrops');
-    if (saved) recentDrops = JSON.parse(saved);
-    
-    if (recentDrops.length === 0) {
-        container.innerHTML = '<div class="drop-item">✨ Open your first case! ✨</div>';
+    if (!cases || cases.length === 0) {
+        container.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:#666; padding:2rem;">Нет кейсов</div>';
+        if (countId) document.getElementById(countId).innerText = '0';
         return;
     }
     
-    container.innerHTML = recentDrops.map(drop => 
-        `<div class="drop-item">${drop}</div>`
-    ).join('');
-}
-
-function updateHeroStats() {
-    const totalOpened = localStorage.getItem('totalOpened') || 0;
-    const legendaryCount = localStorage.getItem('legendaryCount') || 0;
-    
-    const totalEl = document.getElementById('totalOpenedHero');
-    const legEl = document.getElementById('legendaryHero');
-    if (totalEl) totalEl.innerText = totalOpened;
-    if (legEl) legEl.innerText = legendaryCount;
-}
-
-function openCase(caseData) {
-    // Check balance
-    if (window.getUserBalance() < caseData.price) {
-        alert(`🐀 Not enough 🧀 coins! Need ${caseData.price}, you have ${window.getUserBalance()}`);
-        return;
-    }
-    
-    // Deduct balance
-    window.addBalance(-caseData.price);
-    
-    // Random item from case
-    const randomIndex = Math.floor(Math.random() * caseData.items.length);
-    const wonItem = { ...caseData.items[randomIndex] };
-    
-    // Add to inventory
-    window.addToInventory(wonItem);
-    
-    // Update stats
-    let totalOpened = parseInt(localStorage.getItem('totalOpened') || '0');
-    totalOpened++;
-    localStorage.setItem('totalOpened', totalOpened);
-    
-    if (wonItem.rarity === 'legendary' || wonItem.rarity === 'mythic') {
-        let legendaryCount = parseInt(localStorage.getItem('legendaryCount') || '0');
-        legendaryCount++;
-        localStorage.setItem('legendaryCount', legendaryCount);
-    }
-    
-    // Track highest drop
-    let highestDrop = parseInt(localStorage.getItem('highestDrop') || '0');
-    if (wonItem.value > highestDrop) {
-        localStorage.setItem('highestDrop', wonItem.value);
-    }
-    
-    // Add to recent drops
-    addRecentDrop(wonItem, caseData.name);
-    updateHeroStats();
-    
-    // Show modal with result
-    showOpenModal(wonItem);
-}
-
-function showOpenModal(item) {
-    const modal = document.getElementById('openModal');
-    const resultText = document.getElementById('resultText');
-    const wheel = document.getElementById('rouletteWheel');
-    
-    // Determine color based on rarity
-    const rarityColors = {
-        'common': '#b68b40',
-        'rare': '#3b82f6',
-        'legendary': '#f59e0b',
-        'mythic': '#ec4899'
-    };
-    
-    resultText.innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 0.5rem;">${item.icon}</div>
-        <div style="font-weight: bold; font-size: 1.4rem;">${item.name}</div>
-        <div style="color: ${rarityColors[item.rarity] || '#b68b40'}; margin: 0.5rem 0;">
-            ⭐ ${item.rarity.toUpperCase()} ⭐
-        </div>
-        <div>💰 Value: ${item.value} 🧀</div>
-    `;
-    
-    // Animation
-    let spins = 0;
-    const spinInterval = setInterval(() => {
-        const symbols = ['🎲', '🎰', '🐀', '🧀', '✨', '💎'];
-        wheel.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        spins++;
-        if (spins > 10) {
-            clearInterval(spinInterval);
-            wheel.innerText = item.icon;
-        }
-    }, 80);
-    
-    modal.style.display = "flex";
-}
-
-function renderCases() {
-    const container = document.getElementById('casesContainer');
-    if (!container) return;
-    
-    container.innerHTML = casesData.map(caseItem => `
-        <div class="case-card" data-id="${caseItem.id}">
-            <div class="case-icon">${caseItem.icon}</div>
-            <h3>${caseItem.name}</h3>
-            <div class="case-price">💰 ${caseItem.price} 🧀</div>
-            <div class="case-items-preview">
-                ${caseItem.items.slice(0, 2).map(i => i.icon).join(' ')}...
-            </div>
-            <button class="open-case-btn" data-id="${caseItem.id}">
-                🔑 Open Case
-            </button>
+    container.innerHTML = cases.map(c => `
+        <div class="case-card" data-id="${c.id}">
+            <div class="case-icon">${c.icon}</div>
+            <div class="case-name">${c.name}${c.isNew ? '<span class="case-badge">NEW</span>' : ''}</div>
+            <div class="case-items-count"><span>${c.itemsCount}</span> предметов</div>
+            <div class="case-price">${c.price} ₽</div>
         </div>
     `).join('');
     
-    // Attach event listeners
-    document.querySelectorAll('.open-case-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const caseId = parseInt(btn.dataset.id);
-            const selectedCase = casesData.find(c => c.id === caseId);
-            if (selectedCase) openCase(selectedCase);
+    if (countId) document.getElementById(countId).innerText = cases.length;
+    
+    document.querySelectorAll(`#${containerId} .case-card`).forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = `case-detail.html?id=${card.dataset.id}`;
         });
     });
 }
 
-// Modal close logic
-function initModal() {
-    const modal = document.getElementById('openModal');
-    const closeSpan = document.querySelector('#openModal .close');
-    const closeBtn = document.getElementById('modalCloseBtn');
-    
-    if (closeSpan) {
-        closeSpan.onclick = () => modal.style.display = "none";
-    }
-    if (closeBtn) {
-        closeBtn.onclick = () => modal.style.display = "none";
-    }
-    window.onclick = (e) => {
-        if (e.target === modal) modal.style.display = "none";
-    };
+function renderAllCategories() {
+    renderCategory('serialCases', casesData.serial, 'serialCount');
+    renderCategory('premiumCases', casesData.premium, 'premiumCount');
+    renderCategory('exclusiveCases', casesData.exclusive, 'exclusiveCount');
+    renderCategory('limitedCases', casesData.limited, 'limitedCount');
 }
 
-// Initialization
+// ===== ЛЕНТА ОТКРЫТИЙ (как на скриншоте) =====
+let liveDrops = [];
+
+function createLiveDropElement(drop) {
+    const div = document.createElement('div');
+    div.className = 'live-drop-item';
+    const stattrakSpan = drop.skin.stattrak ? '<span style="color:#ffd700; font-size:0.6rem;">★ StatTrak™</span> ' : '';
+    div.innerHTML = `
+        <span class="live-drop-avatar">${drop.player.avatar}</span>
+        <span class="live-drop-name">${drop.player.name}</span>
+        <span class="live-drop-skin">
+            ${stattrakSpan}${drop.skin.name} | ${drop.skin.skin}
+        </span>
+        <span class="live-drop-price">${drop.price}₽</span>
+    `;
+    return div;
+}
+
+function initLiveDrops() {
+    const track = document.getElementById('liveDropsTrack');
+    if (!track) return;
+    
+    // Заполняем 20 дропов
+    for (let i = 0; i < 20; i++) {
+        const drop = generateDrop();
+        liveDrops.push(drop);
+        track.appendChild(createLiveDropElement(drop));
+    }
+    
+    // Каждые 5 секунд добавляем новый слева, удаляем правый
+    setInterval(() => {
+        const newDrop = generateDrop();
+        liveDrops.unshift(newDrop);
+        const newElement = createLiveDropElement(newDrop);
+        track.insertBefore(newElement, track.firstChild);
+        
+        // Плавное появление
+        newElement.style.opacity = '0';
+        setTimeout(() => {
+            newElement.style.transition = 'opacity 0.3s';
+            newElement.style.opacity = '1';
+        }, 10);
+        
+        // Удаляем последний
+        if (liveDrops.length > 20) {
+            liveDrops.pop();
+            const lastElement = track.lastChild;
+            if (lastElement) {
+                lastElement.style.transition = 'opacity 0.3s';
+                lastElement.style.opacity = '0';
+                setTimeout(() => {
+                    if (lastElement.parentNode) lastElement.parentNode.removeChild(lastElement);
+                }, 300);
+            }
+        }
+    }, 5000);
+}
+
+// ===== ТАЙМЕР =====
+function startTimer() {
+    let time = 39 * 60 + 55;
+    const timerEl = document.getElementById('timer');
+    if (!timerEl) return;
+    setInterval(() => {
+        if (time <= 0) return;
+        time--;
+        const h = Math.floor(time / 3600);
+        const m = Math.floor((time % 3600) / 60);
+        const s = time % 60;
+        timerEl.innerText = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }, 1000);
+}
+
+// ===== ПРОМОКОД =====
+function initPromoCopy() {
+    const btn = document.getElementById('copyPromo');
+    if (btn) {
+        btn.onclick = () => {
+            const promo = document.getElementById('promocode').innerText;
+            navigator.clipboard.writeText(promo);
+            if (window.showNotification) {
+                window.showNotification('📋 ПРОМОКОД', 'Скопирован: ' + promo, 0, 'buy');
+            }
+        };
+    }
+}
+
+// ===== СОХРАНЕНИЕ КЕЙСОВ =====
+function saveAllCasesToLocalStorage() {
+    const all = [...casesData.serial, ...casesData.premium, ...casesData.exclusive, ...casesData.limited];
+    localStorage.setItem('casesData', JSON.stringify(all));
+}
+
+// ===== ЗАПУСК =====
 document.addEventListener('DOMContentLoaded', () => {
-    initCommon();
-    renderCases();
-    renderRecentDrops();
-    updateHeroStats();
-    initModal();
+    if (window.initCommon) window.initCommon();
+    renderAllCategories();
+    startTimer();
+    initPromoCopy();
+    saveAllCasesToLocalStorage();
+    initLiveDrops();
 });
